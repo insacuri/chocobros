@@ -17,3 +17,6 @@ def login():
 @app.route('/search/<card_name>')
 def search(card_name=None):
     return render_template('search.html', card_name=card_name)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
