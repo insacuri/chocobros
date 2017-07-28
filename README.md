@@ -16,6 +16,8 @@ You can also run it in docker by doing:
  - `docker build -t chocobros .`
  - `docker run -p 5000:80 chocobros` (Should be running at localhost:5000)
 
+ Also requires mongodb to be running at localhost:27017 (will be configurable later on)
+
 
  # TODO
 
