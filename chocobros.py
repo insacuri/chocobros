@@ -7,7 +7,7 @@ app.config.from_object(__name__)
 
 #TODO: Get this config from somewhere else
 app.config.update(dict(
-    DATABASE_URL='localhost',
+    DATABASE_URL='35.176.245.137',
     DATABASE_PORT=27017
 ))
 
