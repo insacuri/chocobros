@@ -8,7 +8,7 @@ Written in python as a learning exercise but might one day become something more
 
 Heres a basic guide on how to set this up locally
  - Running in a vitualenv is recommended `python3 -m venv chocobros`
- - `pip3 install Flask`
+ - `pip3 install -r requirements.txt`
  - `export FLASK_APP=chocobros.py`
  - `flask run`
 
