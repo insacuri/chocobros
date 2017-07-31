@@ -7,7 +7,7 @@ app.config.from_object(__name__)
 
 #TODO: Get this config from somewhere else
 app.config.update(dict(
-    DATABA SE_URL='localhost',
+    DATABASE_URL='localhost',
     DATABASE_PORT=27017
 ))
 
@@ -42,7 +42,7 @@ def search(card_name=None):
     app.logger.debug(client.database_names())
     db = client.test
 
-    result = db.card.find_one({"name": card_name})
+    result = db.card.find({"name": card_name})
     collection = db.test_collection
     return render_template('search.html', card_name=card_name, result=result)
 

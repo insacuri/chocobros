@@ -2,7 +2,17 @@
 {% block body %}
   <div class="starter-template">
     <h1>Search result</h1>
-    <p>{{ card_name }}</p>
-    <p>{{ result }}</p>
+
+    {% for card in result %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Panel title</h3>
+      </div>
+      <div class="panel-body">
+        {{ card.name }}
+        {{ card.cost }}
+      </div>
+    </div>
+    {% endfor %}
   </div>
 {% endblock %}
