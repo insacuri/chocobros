@@ -22,7 +22,9 @@ You can also run it in docker by doing:
  # TODO
 
  Stuff to do in the future
-  - decide on DB technology (mongodb?)
-  - authentication (experiment with bcrypt or something similar? 2FA with a time based token?)
+  - Baseline DB scripts (set up data onto a fresh DB)
+  - Search functionality
+  - Login and Authentication (experiment with bcrypt or something similar? 2FA with a time based token?)
   - Deck builder
   - Splitting out non-visible functionality into an API?
+  - Blog/deck of the week section
