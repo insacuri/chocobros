@@ -1,18 +1,56 @@
 {% extends "layout.html" %}
 {% block body %}
-  <div class="starter-template">
-    <h1>Search result</h1>
+<div class="starter-template">
+  <h1>Search result</h1>
 
-    {% for card in result %}
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Panel title</h3>
-      </div>
-      <div class="panel-body">
-        {{ card.name }}
-        {{ card.cost }}
+  {% for card in result %}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{ card.name }}</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th style="border-top: none;">Cost</th>
+            <td style="border-top: none;">{{ card.cost }}</td>
+          </tr>
+          <tr>
+            <th>Element</th>
+            <td>{{ card.element }}</td>
+          </tr>
+          <tr>
+            <th>Type</th>
+            <td>{{ card.type }}</td>
+          </tr>
+          <tr>
+            <th>Job</th>
+            <td>{{ card.job }}</td>
+          </tr>
+          <tr>
+            <th>Category</th>
+            <td>{{ card.category}}</td>
+          </tr>
+          <tr>
+            <th>Card Text</th>
+            <td><p>{{ card.text }}</td>
+            </tr>
+            <tr>
+              <th>Power</th>
+              <td>{{ card.power }}</td>
+            </tr>
+            <tr>
+              <th>Rarity</th>
+              <td>{{ card.rarity }}</td>
+            </tr>
+            <tr>
+              <th>Card Number</th>
+              <td>{{ card.set }}-{{ card.number}}-{{ card.rarity }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     {% endfor %}
   </div>
-{% endblock %}
+  {% endblock %}
