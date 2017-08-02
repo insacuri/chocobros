@@ -34,15 +34,18 @@ def home():
 def login():
     return render_template('login.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/search')
 @app.route('/search/<card_name>')
 def search(card_name=None):
 
     client= get_client()
-    app.logger.debug(client.database_names())
-    db = client.test
+    db = client.chocobros
 
-    result = db.card.find({"name": card_name})
+    result = db.cards.find({"name": card_name})
     collection = db.test_collection
     return render_template('search.html', card_name=card_name, result=result)
 
