@@ -1,4 +1,5 @@
 # chocobros
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/183634e5dafe47deab5b131a258379c0)](https://www.codacy.com/app/insacuri/chocobros?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=insacuri/chocobros&amp;utm_campaign=Badge_Grade)
 
 This'll be the code for the chocobros fftcg site
 

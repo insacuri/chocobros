@@ -1,4 +1,4 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, \
+from flask import Flask, request, g, redirect, url_for, abort, \
      render_template, flash
 from pymongo import MongoClient
 
@@ -46,7 +46,6 @@ def search(card_name=None):
     db = client.chocobros
 
     result = db.cards.find({"name": card_name})
-    collection = db.test_collection
     return render_template('search.html', card_name=card_name, result=result)
 
 if __name__ == "__main__":
