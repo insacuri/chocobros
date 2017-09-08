@@ -1,6 +1,7 @@
 from flask import Flask, request, g, redirect, url_for, abort, \
      render_template, flash
 from pymongo import MongoClient
+import re
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -45,8 +46,11 @@ def search(card_name=None):
     client= get_client()
     db = client.chocobros
 
-    result = db.cards.find({"name": card_name})
-    return render_template('search.html', card_name=card_name, result=result)
+    # Doing case insensitivity here is inefficient, but over a few hundred results it's fine.
+    results = db.cards.find({"name": re.compile(card_name, re.IGNORECASE)})
+    for result in results.find():
+        print(result)
+    return render_template('search.html', card_name=card_name, results=results)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
