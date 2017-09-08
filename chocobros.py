@@ -47,9 +47,7 @@ def search(card_name=None):
     db = client.chocobros
 
     # Doing case insensitivity here is inefficient, but over a few hundred results it's fine.
-    results = db.cards.find({"name": re.compile(card_name, re.IGNORECASE)})
-    for result in results.find():
-        print(result)
+    results = db.cards.find({"name": card_name})
     return render_template('search.html', card_name=card_name, results=results)
 
 if __name__ == "__main__":
