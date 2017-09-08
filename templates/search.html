@@ -2,7 +2,11 @@
 {% block body %}
 <div class="starter-template">
   <h1>Search result</h1>
-
+  <form action="{{ url_for('search') }}" method=get>
+    <input type=text name=name placeholder="Card name here...">
+    <input type=submit value=search>
+  </form>
+</br>
   {% for card in results %}
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -33,7 +37,9 @@
           </tr>
           <tr>
             <th>Card Text</th>
+            {% autoescape false %}
             <td><p>{{ card.text }}</td>
+            {% endautoescape %}
             </tr>
             <tr>
               <th>Power</th>

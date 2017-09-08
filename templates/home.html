@@ -6,8 +6,8 @@
       Welcome to Chocobros! This site contains a simple search bar for FFTCG cards
       but there should be more to come in the future so stay tuned!
     </p>
-    <form action="{{ url_for('home') }}" method=post>
-      <input type=text name=card_name placeholder="Card name here...">
+    <form action="{{ url_for('search') }}" method=get>
+      <input type=text name=name placeholder="Card name here...">
       <input type=submit value=search>
     </form>
     <h3>Coming soon...</h3>

@@ -1,7 +1,6 @@
 from flask import Flask, request, g, redirect, url_for, abort, \
      render_template, flash
 from pymongo import MongoClient
-import re
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -26,9 +25,6 @@ def get_client():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        if request.form['card_name'] :
-            return redirect(url_for('search') + '/' + request.form['card_name'])
     return render_template('home.html')
 
 @app.route('/login')
@@ -40,15 +36,18 @@ def about():
     return render_template('about.html')
 
 @app.route('/search')
-@app.route('/search/<card_name>')
-def search(card_name=None):
+def search():
 
     client= get_client()
     db = client.chocobros
 
     # Doing case insensitivity here is inefficient, but over a few hundred results it's fine.
-    results = db.cards.find({"name":{"$regex":card_name, "$options": "-i"}})
-    return render_template('search.html', card_name=card_name, results=results)
+    results = db.cards.find({"name":{"$regex":request.args.get('name', ''), "$options": "-i"}})
+    blah = []
+    for result in results:
+        result['text'] = result['text'].replace('[wind]', "<img src='/static/icons/wind.png' class='small-icon'/>")
+        blah.append(result)
+    return render_template('search.html', results=blah)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)

@@ -24,3 +24,11 @@ body {
   height: 60px;
   background-color: #f5f5f5;
 }
+
+img.small-icon
+{
+    height: 14px;
+    width: auto;
+    vertical-align: middle;
+    margin: 0 2px;
+}
