@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+#TODO configure a logger
 #TODO: Get this config from somewhere else
 app.config.update(dict(
     DATABASE_URL='localhost',
